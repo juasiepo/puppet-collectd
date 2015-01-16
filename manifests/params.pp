@@ -2,15 +2,15 @@
 #
 class collectd::params (
   $pkgname        = $::operatingsystem ? {
-    /(?i:centos|redhat|fedora)/ => "collectd.${::architecture}",
+    /(?i:centos|redhat|fedora|OracleLinux)/ => "collectd.${::architecture}",
     default                     => 'collectd',
   },
   $config_file    = $::operatingsystem ? {
-    /(?i:centos|redhat|fedora)/ => '/etc/collectd.conf',
+    /(?i:centos|redhat|fedora|OracleLinux)/ => '/etc/collectd.conf',
     default                     => '/etc/collectd/collectd.conf',
   },
   $config_template_name = $::operatingsystem ? {
-    /(?i:centos|redhat|fedora)/ => 'collectd/collectd.conf.CentOS',
+    /(?i:centos|redhat|fedora|OracleLinux)/ => 'collectd/collectd.conf.CentOS',
     /(?i:Debian|Ubuntu)/        => 'collectd/collectd.conf.Debian',
     default                     => 'collectd/collectd.conf.CentOS',
   },
